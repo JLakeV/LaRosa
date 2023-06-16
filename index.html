@@ -39,10 +39,11 @@
     <script src="https://raw.githubusercontent.com/JLakeV/test1Canopia/main/data/GRILLAROSAPARAWEB_1.js"></script>
     <script src="https://raw.githubusercontent.com/JLakeV/test1Canopia/main/data/VECTORROSAPARAWEB_2.js"></script>
 
-        <script>
-        var map = L.map('map', {
-            zoomControl:true, maxZoom:28, minZoom:1
-        })
+      var map = L.map('map', {
+            zoomControl: true,
+            maxZoom: 28,
+            minZoom: 1
+        });
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -297,6 +298,7 @@
         var baseMaps = {};
         L.control.layers(baseMaps,{'VECTOR ROSA PARA WEB<br /><table><tr><td style="text-align: center;"><img src="legend/VECTORROSAPARAWEB_2_0150.png" /></td><td>0 - 1,5</td></tr><tr><td style="text-align: center;"><img src="legend/VECTORROSAPARAWEB_2_15331.png" /></td><td>1,5 - 3,3</td></tr><tr><td style="text-align: center;"><img src="legend/VECTORROSAPARAWEB_2_3352.png" /></td><td>3,3 - 5</td></tr><tr><td style="text-align: center;"><img src="legend/VECTORROSAPARAWEB_2_5693.png" /></td><td>5 - 6,9</td></tr><tr><td style="text-align: center;"><img src="legend/VECTORROSAPARAWEB_2_69114.png" /></td><td>6,9 - 11</td></tr></table>': layer_VECTORROSAPARAWEB_2,'GRILLA ROSA PARA WEB<br /><table><tr><td style="text-align: center;"><img src="legend/GRILLAROSAPARAWEB_1_10.png" /></td><td>1</td></tr><tr><td style="text-align: center;"><img src="legend/GRILLAROSAPARAWEB_1_21.png" /></td><td>2</td></tr><tr><td style="text-align: center;"><img src="legend/GRILLAROSAPARAWEB_1_32.png" /></td><td>3</td></tr><tr><td style="text-align: center;"><img src="legend/GRILLAROSAPARAWEB_1_3.png" /></td><td></td></tr></table>': layer_GRILLAROSAPARAWEB_1,"SATELLITE": layer_SATELLITE_0,},{collapsed:false}).addTo(map);
         setBounds();
-        </script>
-    </body>
+  </script>
+</body>
+
 </html>
