@@ -1,50 +1,45 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/qgis2web/qgis2web.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-measure/dist/leaflet-measure.css">
-    <style>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/qgis2web@3.2.0/dist/qgis2web.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-measure/dist/leaflet-measure.css" />
+        <style>
         html, body, #map {
             width: 100%;
             height: 100%;
             padding: 0;
             margin: 0;
         }
-    </style>
-    <title></title>
-</head>
-<body>
-    <div id="map"></div>
-    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/leaflet.rotatedmarker/leaflet.rotatedMarker.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/leaflet.pattern/dist/leaflet.pattern.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/leaflet-hash/leaflet-hash.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/Autolinker/dist/Autolinker.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/rbush/rbush.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/labelgun/dist/labelgun.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/labelsjs/dist/labels.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/leaflet-measure/dist/leaflet-measure.js"></script>
-    <script src="https://jlakev.github.io/test1Canopia/data/GRILLAROSAPARAWEB_1.js"></script>
-    <script src="https://jlakev.github.io/test1Canopia/data/VECTORROSAPARAWEB_2.js"></script>
-    <script>
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map"></div>
+        <script src="https://cdn.jsdelivr.net/npm/qgis2web/src/leaflet.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/qgis2web/src/leaflet.rotatedMarker.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/qgis2web/src/leaflet.pattern.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/qgis2web/src/leaflet-hash.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/qgis2web/src/Autolinker.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/qgis2web/src/rbush.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/qgis2web/src/labelgun.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/qgis2web/src/labels.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/qgis2web/src/leaflet-measure.js"></script>
+        <script src="https://raw.githubusercontent.com/JLakeV/test1Canopia/main/data/GRILLAROSAPARAWEB_1.js"></script>
+        <script src="https://raw.githubusercontent.com/JLakeV/test1Canopia/main/data/VECTORROSAPARAWEB_2.js"></script>
+        <script>
         var map = L.map('map', {
-            zoomControl: true,
-            maxZoom: 28,
-            minZoom: 1
+            zoomControl:true, maxZoom:28, minZoom:1
         });
-
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
-
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
-
         var measureControl = new L.Control.Measure({
             position: 'topleft',
             primaryLengthUnit: 'meters',
@@ -53,9 +48,10 @@
             secondaryAreaUnit: 'hectares'
         });
         measureControl.addTo(map);
-
-        document.getElementsByClassName('leaflet-control-measure-toggle')[0].innerHTML = '';
-        document.getElementsByClassName('leaflet-control-measure-toggle')[0].classList.add('fas', 'fa-ruler');
+        document.getElementsByClassName('leaflet-control-measure-toggle')[0]
+        .innerHTML = '';
+        document.getElementsByClassName('leaflet-control-measure-toggle')[0]
+        .className += ' fas fa-ruler';
         var bounds_group = new L.featureGroup([]);
         function setBounds() {
             if (bounds_group.getLayers().length) {
@@ -73,7 +69,7 @@
             minNativeZoom: 0,
             maxNativeZoom: 20
         });
-        
+        layer_SATELLITE_0;
         map.addLayer(layer_SATELLITE_0);
         function pop_GRILLAROSAPARAWEB_1(feature, layer) {
             var popupContent = '<table>\
