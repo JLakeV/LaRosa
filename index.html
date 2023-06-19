@@ -54,10 +54,8 @@
         });
         measureControl.addTo(map);
 
-        document.getElementsByClassName('leaflet-control-measure-toggle')[0].
-        .innerHTML = '';
-        document.getElementsByClassName('leaflet-control-measure-toggle')[0]
-        .className += ' fas fa-ruler';
+        document.getElementsByClassName('leaflet-control-measure-toggle')[0].innerHTML = '';
+        document.getElementsByClassName('leaflet-control-measure-toggle')[0].classList.add('fas', 'fa-ruler');
         var bounds_group = new L.featureGroup([]);
         function setBounds() {
             if (bounds_group.getLayers().length) {
