@@ -7,21 +7,21 @@
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <link rel="stylesheet" href="css/leaflet.css">
-        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/qgis2web.css">
+        <link rel="stylesheet" href="css/fontawesome-all.min.css">
         <link rel="stylesheet" href="css/leaflet-measure.css">
         <style>
-        html, body, #map {
-            width: 100%;
-            height: 100%;
-            padding: 0;
-            margin: 0;
-        }
+            html, body, #map {
+                width: 100%;
+                height: 100%;
+                padding: 0;
+                margin: 0;
+            }
         </style>
         <title></title>
     </head>
     <body>
-        <div id="map">
-        </div>
+        <div id="map"></div>
         <script src="https://cdn.jsdelivr.net/npm/gh-pages@latest/dist/cdn.min.js"></script>
         <script>
             const github = new GitHub("JLakeV/test1Canopia");
@@ -31,32 +31,35 @@
                     const src = github.getRawFile(source.name);
                     document.write(`<script src="${src}"></script>`);
                 }
-            });
-        var hash = new L.Hash(map);
-        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
-        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
-        var measureControl = new L.Control.Measure({
-            position: 'topleft',
-            primaryLengthUnit: 'meters',
-            secondaryLengthUnit: 'kilometers',
-            primaryAreaUnit: 'sqmeters',
-            secondaryAreaUnit: 'hectares'
-        });
-        measureControl.addTo(map);
-        document.getElementsByClassName('leaflet-control-measure-toggle')[0]
-        .innerHTML = '';
-        document.getElementsByClassName('leaflet-control-measure-toggle')[0]
-        .className += ' fas fa-ruler';
-        var bounds_group = new L.featureGroup([]);
-        function setBounds() {
-            if (bounds_group.getLayers().length) {
-                map.fitBounds(bounds_group.getBounds());
             }
-        }
-        map.createPane('pane_SATELLITE_0');
-        map.getPane('pane_SATELLITE_0').style.zIndex = 400;
-        var layer_SATELLITE_0 = L.tileLayer('http://www.google.cn/maps/vt?lyrs=s@189&gl=cn&x={x}&y={y}&z={z}', {
-            pane: 'pane_SATELLITE_0',
+        </script>
+        <script>
+            var map = L.map('map', {
+                zoomControl: true, maxZoom: 28, minZoom: 1
+            }).fitBounds([[23.7276356718,-89.1852621033],[27.6378165631,-86.7159856361]]);
+            var hash = new L.Hash(map);
+            map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+            var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+            var measureControl = new L.Control.Measure({
+                position: 'topleft',
+                primaryLengthUnit: 'meters',
+                secondaryLengthUnit: 'kilometers',
+                primaryAreaUnit: 'sqmeters',
+                secondaryAreaUnit: 'hectares'
+            });
+            measureControl.addTo(map);
+            document.getElementsByClassName('leaflet-control-measure-toggle')[0].innerHTML = '';
+            document.getElementsByClassName('leaflet-control-measure-toggle')[0].className += ' fas fa-ruler';
+            var bounds_group = new L.featureGroup([]);
+            function setBounds() {
+                if (bounds_group.getLayers().length) {
+                    map.fitBounds(bounds_group.getBounds());
+                }
+            }
+            map.createPane('pane_SATELLITE_0');
+            map.getPane('pane_SATELLITE_0').style.zIndex = 400;
+            var layer_SATELLITE_0 = L.tileLayer('http://www.google.cn/maps/vt?lyrs=s@189&gl=cn&x={x}&y={y}&z={z}', {
+                pane: 'pane_SATELLITE_0,
             opacity: 1.0,
             attribution: '',
             minZoom: 1,
