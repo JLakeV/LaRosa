@@ -6,10 +6,9 @@
         <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
-        <link rel="stylesheet" href="https://JLakeV.github.io/test1Canopia/css/leaflet.css">
-        <link rel="stylesheet" href="https://JLakeV.github.io/test1Canopia/css/qgis2web.css">
-        <link rel="stylesheet" href="https://JLakeV.github.io/test1Canopia/css/fontawesome-all.min.css">
-        <link rel="stylesheet" href="https://JLakeV.github.io/test1Canopia/css/leaflet-measure.css">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/leaflet-measure.css">
         <style>
         html, body, #map {
             width: 100%;
@@ -23,22 +22,16 @@
     <body>
         <div id="map">
         </div>
-        <script src="https://JLakeV.github.io/test1Canopia/js/qgis2web_expressions.js"></script>
-        <script src="https://JLakeV.github.io/test1Canopia/js/leaflet.js"></script>
-        <script src="https://JLakeV.github.io/test1Canopia/js/leaflet.rotatedMarker.js"></script>
-        <script src="https://JLakeV.github.io/test1Canopia/js/leaflet.pattern.js"></script>
-        <script src="https://JLakeV.github.io/test1Canopia/js/leaflet-hash.js"></script>
-        <script src="https://JLakeV.github.io/test1Canopia/js/Autolinker.min.js"></script>
-        <script src="https://JLakeV.github.io/test1Canopia/js/rbush.min.js"></script>
-        <script src="https://JLakeV.github.io/test1Canopia/js/labelgun.min.js"></script>
-        <script src="https://JLakeV.github.io/test1Canopia/js/labels.js"></script>
-        <script src="https://JLakeV.github.io/test1Canopia/js/leaflet-measure.js"></script>
-        <script src="https://JLakeV.github.io/test1Canopia/data/GRILLAROSAPARAWEB_1.js"></script>
-        <script src="https://JLakeV.github.io/test1Canopia/data/VECTORROSAPARAWEB_2.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gh-pages@latest/dist/cdn.min.js"></script>
         <script>
-        var map = L.map('map', {
-            zoomControl:true, maxZoom:28, minZoom:1
-        });
+            const github = new GitHub("JLakeV/test1Canopia");
+            const sources = github.getDirectoryContents("/");
+            for (const source of sources) {
+                if (source.type === "file" && source.name.endsWith(".js")) {
+                    const src = github.getRawFile(source.name);
+                    document.write(`<script src="${src}"></script>`);
+                }
+            });
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
